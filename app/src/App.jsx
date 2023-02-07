@@ -1,19 +1,21 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
-import Navbar from './components/Navbar/Navbar';
 import 'animate.css';
+
+import Navbar from './components/Navbar/Navbar';
 import Home from './pages/Home/Home';
-function App() {
+export default function App() {
+  // console.log(faClose);
   return (
     <>
-      {/* <Navbar /> */}
-
+      {/* <Test /> */}
+      {/* <AccessAlarm /> */}
+      <Navbar />
       <Home />
+      {/* <FontAwesomeIcon
+        icon={faClose}
+        className={`ml-auto fa-xl ease-in-out duration-150 hover:text-primary-blue hover:cursor-pointer sm:hidden`}
+      /> */}
     </>
-    // <div className="App">
-    //   <h1 className="text-rose-400 font-bold">Hello world</h1>
-    // </div>
   );
 }
-
-export default App;
