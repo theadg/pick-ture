@@ -42,7 +42,6 @@ function Home() {
             src={heartAccent}
             alt=""
           />
-
           <img
             className="z-0 col-span-3 row-start-2 col-start-1 row-span-5 hero__img  min-w-auto animate__animated animate__fadeInUp animate__delay mt-8 rounded-2xl "
             src={heroImg}
