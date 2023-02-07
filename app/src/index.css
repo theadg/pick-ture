@@ -16,6 +16,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  overflow-x: hidden;
 }
 
 .text-max {
@@ -25,6 +27,40 @@
 .animate__delay {
   animation-delay: 0.75s;
 }
+
+.animate__delay-1s {
+  animation-delay: 1.25s;
+}
+
+.hero__img {
+  max-width: min(80vw, 700px);
+}
+
+.grid__header {
+  grid-template-rows: 1fr min;
+}
+
+.grid__header--sub {
+  grid-template-rows: 0.5fr 1fr;
+  grid-template-columns: 0.5fr 1fr 1fr;
+}
+.grid__image {
+  grid-template-columns: 0.5fr 0.5fr 0.15fr;
+  grid-template-rows: 0 min min;
+}
+
+.top--img {
+  top: 360px;
+}
+
+.h--img {
+  height: 40vh;
+}
+
+.menu {
+  width: 50px;
+}
+
 /* 
 @media (prefers-color-scheme: light) {
   :root {

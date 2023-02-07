@@ -13,7 +13,7 @@ function Steps(props) {
           index % 2 === 0 ? 'animate__fadeInLeft' : 'animate__fadeInRight'
         }
       >
-        <div className="grid grid-cols-5 grid-rows-3 align justify-center items-center relative">
+        <div className="  max-w-sm grid grid-cols-5 grid-rows-3 align justify-center items-center relative">
           <h1 className="absolute  col-z-0 text-max font-bold font-main row-auto text-secondary-bg">
             {index}
           </h1>
