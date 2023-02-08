@@ -76,6 +76,25 @@
 .blob {
   top: -60px;
 }
+
+.grid__category {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 93px);
+  align-items: center;
+  justify-items: center;
+}
+
+.grid__category:hover {
+  /* text-shadow: 0px -1px 50px #222831; */
+}
+
+.img__category {
+  width: 300px;
+  height: 280px;
+  filter: grayscale(0%);
+}
+
 /* 
 @media (prefers-color-scheme: light) {
   :root {

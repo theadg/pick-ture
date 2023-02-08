@@ -5,6 +5,7 @@ import Navbar from './components/Navbar/Navbar';
 import Home from './pages/Home/Home';
 import Footer from './components/Footer/Footer';
 import Photos from './pages/Photos/Photos';
+import Explore from './pages/Explore/Explore';
 
 // TODO: routes
 export default function App() {
@@ -13,7 +14,8 @@ export default function App() {
     <>
       <Navbar />
       {/* <Home /> */}
-      <Photos />
+      {/* <Photos /> */}
+      <Explore />
       <Footer />
     </>
   );
