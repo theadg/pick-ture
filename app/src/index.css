@@ -24,6 +24,10 @@
   font-size: 180px;
 }
 
+.text-min {
+  font-size: 120px;
+}
+
 .animate__delay {
   animation-delay: 0.75s;
 }
@@ -55,12 +59,20 @@
 
 .h--img {
   height: 40vh;
+  grid-row: 1/6;
 }
 
 .menu {
   width: 50px;
 }
 
+.img__rank {
+  bottom: -33px;
+}
+
+.img__card {
+  max-width: 690px;
+}
 /* 
 @media (prefers-color-scheme: light) {
   :root {
