@@ -12,8 +12,8 @@ export default function App() {
   return (
     <>
       <Navbar />
-      <Home />
-      {/* <Photos /> */}
+      {/* <Home /> */}
+      <Photos />
       <Footer />
     </>
   );

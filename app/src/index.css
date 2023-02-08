@@ -73,6 +73,9 @@
 .img__card {
   max-width: 690px;
 }
+.blob {
+  top: -60px;
+}
 /* 
 @media (prefers-color-scheme: light) {
   :root {

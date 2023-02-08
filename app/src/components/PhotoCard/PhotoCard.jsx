@@ -2,6 +2,8 @@ import React, { useState, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { AnimationOnScroll } from 'react-animation-on-scroll';
+import blob from '../../assets/blob.svg';
+
 function PhotoCard(props) {
   const [votes, setVotes] = useState(props.votes);
   const [hasVoted, setHasVoted] = useState(false);
@@ -47,6 +49,8 @@ function PhotoCard(props) {
           <h1 className="img__rank absolute left-4 z-10 text-min font-bold font-main row-auto text-yellow/60">
             {props.index}
           </h1>
+
+          <img className="absolute md:block blob hidden" src={blob} alt="" />
           <p className="z-10 hover:cursor-pointer hover:bg-primary-blue hover:text-primary-bg  ease-in duration-300  p-2 uppercase font-main border-primary-blue  border-solid border-2 w-min font-semibold text-xs  text-white rounded-full shadow-sm">
             {props.category}
           </p>
