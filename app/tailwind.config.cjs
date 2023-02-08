@@ -15,6 +15,8 @@ module.exports = {
       'primary-blue': '#00ADB5',
       'primary-bg': '#222831',
       'secondary-bg': '#393E46',
+      yellow: '#A49359',
+      card: '#282D36',
       rose: 'rgb(136 19 55)',
       white: '#EEEEEE',
     },
