@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import heroImg from '../../assets/heroImg.avif';
-import steps from './steps';
+import { steps } from './steps';
 import Steps from '../../components/Hero/Steps';
 import 'animate.css/animate.min.css';
 import { AnimationOnScroll } from 'react-animation-on-scroll';
@@ -14,7 +14,7 @@ import enumAccent from '../../assets/enumAccent.svg';
 function Home() {
   return (
     <>
-      {/* TODO: desktop responsiveness */}
+      {/* TODO: Perhaps, animate once */}
       <div className="gap-6 px-8 flex flex-col items-center mt-12 justify-center bg-rose-900 ">
         <div className="grid grid-header justify-center justify-items-center sm:justify-items-end">
           <img

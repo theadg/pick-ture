@@ -2,7 +2,7 @@ import heart from '../../assets/heart.svg';
 import explore from '../../assets/explore.svg';
 import upload from '../../assets/upload.svg';
 
-export default Array = [
+export const steps = [
   {
     icon: upload,
     heading: 'Upload your Photo',
