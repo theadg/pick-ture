@@ -1,9 +1,13 @@
 import React from 'react';
 import { categories } from './categories';
 import Category from '../../components/Category/Category';
+import Navbar from '../../components/Navbar/Navbar';
+import Footer from '../../components/Footer/Footer';
+
 function Explore() {
   return (
     <>
+      <Navbar />
       <div className="px-8 flex flex-col gap-10 items-center justify-center w-full ">
         <h1 className="uppercase z-10 max-h-min max-w-desk  animate__animated animate__fadeInUp font-bold font-main text-3xl text-center">
           <span className="text-primary-blue">Explore</span> Categories
@@ -17,6 +21,8 @@ function Explore() {
           ))}
         </div>
       </div>
+
+      <Footer />
     </>
   );
 }

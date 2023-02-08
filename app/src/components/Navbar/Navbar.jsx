@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import 'animate.css/animate.min.css';
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -83,21 +84,26 @@ function Navbar() {
           </button>
           <ul className="flex  justify-center">
             <li className=" grid sm:grid-flow-col  gap-4 font-sans items-center h-full">
-              <a
+              <Link
+                to="/"
                 className="text-white hover:text-primary-blue hover:border-solid  ease-in-out duration-150"
                 href=""
               >
                 Home
-              </a>
-              <a className="text-white hover:text-primary-blue hover:border-solid  ease-in-out duration-150">
+              </Link>
+              <Link
+                to="/photos"
+                className="text-white hover:text-primary-blue hover:border-solid  ease-in-out duration-150"
+              >
                 Photos
-              </a>
-              <a
+              </Link>
+              <Link
+                to="/explore"
                 className="text-white hover:text-primary-blue hover:border-solid  ease-in-out duration-150"
                 href=""
               >
                 Explore
-              </a>
+              </Link>
             </li>
           </ul>
 

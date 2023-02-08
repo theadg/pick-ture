@@ -1,4 +1,6 @@
 import React, { useRef } from 'react';
+import Footer from '../../components/Footer/Footer';
+import Navbar from '../../components/Navbar/Navbar';
 import PhotoCard from '../../components/PhotoCard/PhotoCard';
 import { photos } from './photoData';
 
@@ -13,6 +15,7 @@ function Photos() {
 
   return (
     <>
+      <Navbar />
       <div className="px-8 flex flex-col gap-10 items-center justify-center w-full">
         <h1 className="z-10 max-h-min max-w-desk  animate__animated animate__fadeInUp font-bold font-main text-3xl text-center">
           <span className="text-primary-blue">January</span> 2023
@@ -31,6 +34,7 @@ function Photos() {
           />
         ))}
       </div>
+      <Footer />
     </>
   );
 }

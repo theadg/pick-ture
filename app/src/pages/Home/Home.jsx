@@ -10,10 +10,13 @@ import Champion from '../../assets/champ.svg';
 import heartAccent from '../../assets/heartAccent.svg';
 import underline from '../../assets/underline.svg';
 import enumAccent from '../../assets/enumAccent.svg';
+import Navbar from '../../components/Navbar/Navbar';
+import Footer from '../../components/Footer/Footer';
 
 function Home() {
   return (
     <>
+      <Navbar />
       {/* TODO: Perhaps, animate once */}
       <div className="gap-6 px-8 flex flex-col items-center mt-12 justify-center bg-rose-900 ">
         <div className="grid grid-header justify-center justify-items-center sm:justify-items-end">
@@ -115,6 +118,8 @@ function Home() {
           </div>
         </div>
       </AnimationOnScroll>
+
+      <Footer />
     </>
   );
 }
