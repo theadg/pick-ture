@@ -14,7 +14,7 @@ function Steps(props) {
         }
       >
         <div className="  max-w-sm grid grid-cols-5 grid-rows-3 align justify-center items-center relative">
-          <h1 className="absolute  col-z-0 text-max font-bold font-main row-auto text-secondary-bg">
+          <h1 className="absolute  z-0 text-max font-bold font-main row-auto text-secondary-bg">
             {index}
           </h1>
           <h3 className="z-10 col-start-1 col-end-6 capitalize font-bold font-main text-2xl text-center">
