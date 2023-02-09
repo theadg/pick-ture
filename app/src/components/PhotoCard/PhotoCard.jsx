@@ -12,6 +12,9 @@ function PhotoCard(props) {
     if (!hasVoted) {
       setVotes((prev) => prev + 1);
       setHasVoted(true);
+    } else {
+      setVotes((prev) => prev - 1);
+      setHasVoted(false);
     }
   };
 
