@@ -95,6 +95,10 @@
   filter: grayscale(0%);
 }
 
+.font-darken {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 300px;
+}
 /* 
 @media (prefers-color-scheme: light) {
   :root {

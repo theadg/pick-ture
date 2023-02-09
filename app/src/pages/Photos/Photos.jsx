@@ -4,8 +4,6 @@ import Navbar from '../../components/Navbar/Navbar';
 import PhotoCard from '../../components/PhotoCard/PhotoCard';
 import { photos } from './photoData';
 
-// TODO: add image
-// TODO: add animation
 function Photos() {
   const inputVotes = useRef(null);
 
