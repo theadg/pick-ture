@@ -20,7 +20,12 @@ module.exports = {
       rose: 'rgb(136 19 55)',
       white: '#EEEEEE',
     },
-    extend: {},
+    extend: {
+      boxShadow: {
+        '3xl':
+          'box-shadow: 0 20px 25px 0px rgb(0 0 0 / 0.1), 0 8px 10px 0px rgb(0 0 0 / 0.1);',
+      },
+    },
   },
   plugins: [],
 };
