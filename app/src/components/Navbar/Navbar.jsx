@@ -106,10 +106,15 @@ function Navbar() {
               </Link>
             </li>
           </ul>
-
-          <button className="sm:mt-0 sm:w-auto mt-5 bg-primary-blue p-2 rounded font-main text-sm w-full">
-            Sign Up
-          </button>
+          <Link
+            to="/sign-up"
+            className="text-white hover:text-primary-bg hover:border-solid  ease-in-out duration-150"
+            href=""
+          >
+            <button className="sm:mt-0 sm:w-auto mt-5 bg-primary-blue p-2 rounded font-main text-sm w-full">
+              Sign Up
+            </button>
+          </Link>
         </div>
 
         <div className="hidden" id="navMenu"></div>

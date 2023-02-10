@@ -12,7 +12,7 @@ import underline from '../../assets/underline.svg';
 import enumAccent from '../../assets/enumAccent.svg';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
-
+import { Link } from 'react-router-dom';
 function Home() {
   return (
     <>
@@ -34,10 +34,11 @@ function Home() {
           moments, vote on others', and rise to fame with every click.
         </p>
 
-        <button className="animate__animated animate__fadeInUp animate__delay sm:mt-0 sm:w-auto mt-5 bg-primary-blue p-2 rounded font-main text-sm px-8">
-          VIEW PHOTOS
-        </button>
-        {/* TODO: box shadow */}
+        <Link to="/photos">
+          <button className="animate__animated animate__fadeInUp animate__delay sm:mt-0 sm:w-auto mt-5 bg-primary-blue p-2 rounded font-main text-sm px-8">
+            VIEW PHOTOS
+          </button>
+        </Link>
 
         <div className="relative md:max-w-desk w-full  flex justify-center ">
           <img
