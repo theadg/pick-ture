@@ -5,9 +5,11 @@ import Home from './pages/Home/Home';
 import Photos from './pages/Photos/Photos';
 import Explore from './pages/Explore/Explore';
 import Category from './pages/Category/Category';
+import SignUp from './pages/SignUp/SignUp';
+import LogIn from './pages/LogIn/LogIn';
+
 import { Route, Routes } from 'react-router-dom';
 
-// TODO: routes
 export default function App() {
   return (
     <>
@@ -16,6 +18,8 @@ export default function App() {
         <Route path="/photos" element={<Photos />} />
         <Route path="/explore" element={<Explore />} />
         <Route path="/category/:title" element={<Category />} />
+        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/log-in" element={<LogIn />} />
       </Routes>
     </>
   );
