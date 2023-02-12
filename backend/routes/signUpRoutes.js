@@ -5,14 +5,17 @@ const {
   getAccounts,
   createAccount,
   deleteAccount,
+  updateAccount,
 } = require('../controllers/accountController');
 
 // read
 router.get('/', getAccounts);
 
 // create
-router.post('/:id', createAccount);
+router.post('/', createAccount);
 // delete
 router.delete('/:id', deleteAccount);
 
+// update
+router.put('/:id', updateAccount);
 module.exports = router;
