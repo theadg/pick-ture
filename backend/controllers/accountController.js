@@ -1,83 +1,112 @@
-const asyncHandler = require('express-async-handler');
-const randomSchema = require('../schema/randomSchema');
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
 
-const RandomSchema = require('../schema/randomSchema');
+const asyncHandler = require('express-async-handler');
+const User = require('../schema/userSchema');
 
 // @desc    Get Goals
 // @route   GET /signup
 // access   Public
 const getAccounts = asyncHandler(async (req, res) => {
-  const accounts = await RandomSchema.find();
+  const accounts = await User.find();
 
   res.status(200).json(accounts);
 });
 
-// @desc    PUT Goals
-// @route   POST /signup/:id
+// @desc    Register new User
+// @route   POST /user/signup
 // access   Public
 const createAccount = asyncHandler(async (req, res) => {
-  if (!req.body.text) {
-    res.status(400);
+  const { name, email, password } = req.body;
 
-    throw new Error('Please add a text field');
+  if (!name || !email || !password) {
+    res.status(400);
+    throw new Error('Please add all fields');
   }
 
-  const account = await RandomSchema.create({
-    text: req.body.text,
+  // Check if user exists
+  const userExists = await User.findOne({ email });
+
+  if (userExists) {
+    res.status(400);
+    throw new Error('User already exists');
+  }
+
+  // hash password
+  const salt = await bcrypt.genSalt(10);
+  const hashedPassword = await bcrypt.hash(password, salt);
+
+  // Create user
+  const user = await User.create({
+    name,
+    email,
+    password: hashedPassword,
   });
 
-  res.status(200).json(account);
+  if (user) {
+    res.status(201).json({
+      _id: user.id,
+      name: user.name,
+      email: user.email,
+      token: generateToken(user._id),
+    });
+  } else {
+    res.status(400);
+    throw new Error('Invalid user data');
+  }
+
   // res.status(200).json({ message: `Accounts created id=${req.params.id}` });
 });
 
-// @desc    DELETE account
-// @route   DELETE /:id
+// @desc    Authenticate a user
+// @route   POST /user/login
 // access   Public
-const deleteAccount = asyncHandler(async (req, res) => {
-  const account = await randomSchema.findById(req.params.id);
+const logInAccount = asyncHandler(async (req, res) => {
+  const { email, password } = req.body;
 
-  if (!account) {
+  // check for user email
+  const user = await User.findOne({ email });
+
+  if (user && (await bcrypt.compare(password, user.password))) {
+    res.json({
+      _id: user.id,
+      name: user.name,
+      email: user.email,
+      token: generateToken(user._id),
+    });
+  } else {
     res.status(400);
-
-    throw new Error('Account not found :(');
+    throw new Error('Invalid credentials');
   }
+  // const password = await User.findOne({ email });
 
-  // const deletedAccount = await randomSchema.findByIdAndRemove(req.params.id);
-  // PWEDENG DIRETSO NALANG
-  await account.remove();
-  res.status(200).json({ id: req.params.id });
-
-  // res.status(200).json({ message: `Accounts deleted id=${req.params.id}` });
+  // res.json({ message: 'Login User' });
 });
 
-// @desc    UPDATE account
-// @route   UPDATE /:id
-// access   Public
-const updateAccount = asyncHandler(async (req, res) => {
-  const account = await randomSchema.findById(req.params.id);
+// Generate JWT
+const generateToken = (id) => {
+  return jwt.sign({ id }, process.env.JWT_SECRET, {
+    expiresIn: '30d',
+  });
+};
 
-  if (!account) {
-    res.status(400);
+// @desc    Get user data
+// @route   GET /users/me
+// access   Private
+const getMe = asyncHandler(async (req, res) => {
+  const { _id, name, email } = await User.findById(req.user.id);
 
-    throw new Error('Account not found');
-  }
-
-  const updatedAccount = await RandomSchema.findByIdAndUpdate(
-    req.params.id,
-    req.body,
-    {
-      new: true,
-    }
-  );
-
-  res.status(200).json(updatedAccount);
-  // res.status(200).json({ message: `Accounts UPDATED id=${req.params.id}` });
+  res.status(200).json({
+    id: _id,
+    name,
+    email,
+  });
 });
 
 // USED ASYNC FOR PROMISE
 module.exports = {
   getAccounts,
   createAccount,
-  deleteAccount,
-  updateAccount,
+  getMe,
+  logInAccount,
 };
