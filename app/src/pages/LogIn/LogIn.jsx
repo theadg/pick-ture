@@ -1,35 +1,59 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Footer from '../../components/Footer/Footer';
 import Navbar from '../../components/Navbar/Navbar';
-
+import axios from 'axios';
 function LogIn() {
+  const [account, setAccount] = useState({
+    email: '',
+    password: '',
+  });
+
+  const handleChange = (e) => {
+    setAccount((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+
+    console.log(account);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(account);
+    try {
+      await axios.post('http://localhost:5000/user/login', account);
+      alert('logged in bro!');
+    } catch (err) {
+      throw new err();
+    }
+  };
+
   return (
     <>
       <Navbar />
       <div className="flex  flex-col items-center justify-center h-full ">
         <div className="flex px-10 py-10 mt-20 bg-card rounded-2xl flex-col items-center justify-center   w-max gap-4 shadow-xl">
           <div className="">
-            <h1 class="font-main text-4xl font-bold text-primary-blue">
+            <h1 className="font-main text-4xl font-bold text-primary-blue">
               Log In
             </h1>
-            <p class="font-sans">Welcome back!</p>
+            <p className="font-sans">Welcome back!</p>
           </div>
           {/* form itself */}
           <form action="" className="grid gap-4">
             <input
               className="pb-1  border-b-2 font-sans w-half input  duration-200"
               type="email"
-              name=""
+              name="email"
               id=""
               placeholder="Email"
+              onChange={handleChange}
             />
             <input
               className="pb-1  border-b-2 font-sans w-half input  duration-200"
               type="password"
-              name=""
+              name="password"
               id=""
               placeholder="Password"
+              onChange={handleChange}
             />
 
             <div className="flex align-center gap-2 justify-center">
@@ -43,14 +67,17 @@ function LogIn() {
                 Remember Me
               </label>
             </div>
-            <button className="font-bold text-primary-bg animate__animated animate__fadeInUp animate__delay sm:mt-0 sm:w-auto  mt-5 bg-primary-blue  w-full p-2 rounded font-main text-sm px-8">
-              Get Started
+            <button
+              onClick={handleSubmit}
+              className="font-bold text-primary-bg animate__animated animate__fadeInUp animate__delay sm:mt-0 sm:w-auto  mt-5 bg-primary-blue  w-full p-2 rounded font-main text-sm px-8"
+            >
+              Log In
             </button>
 
             <p className="text-sm">
               Don't have an account?{' '}
               <Link to="/sign-up">
-                <span class="text-primary-blue font-bold hover:cursor-pointer">
+                <span className="text-primary-blue font-bold hover:cursor-pointer">
                   {' '}
                   Sign Up.{' '}
                 </span>
