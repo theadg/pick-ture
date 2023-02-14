@@ -31,7 +31,7 @@ export default function Category() {
   }, []);
 
   if (loading) {
-    // loading animation???
+    // loading skeleton
     return <div>loading pa ako eh</div>;
   }
 
@@ -52,6 +52,7 @@ export default function Category() {
               name={`${item.user.first_name} ${
                 item.user.last_name ? item.user.last_name : ''
               }`}
+              username={item.user.username}
               imageLink={item.links.html}
             />
           ))}
