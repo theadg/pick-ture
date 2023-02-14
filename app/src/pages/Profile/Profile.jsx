@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useFetcher, useParams } from 'react-router-dom';
 import Footer from '../../components/Footer/Footer';
 import Navbar from '../../components/Navbar/Navbar';
-
+import { MdLocationOn } from 'react-icons/md';
+import SmPhotoCard from '../../components/SmPhotoCard/SmPhotoCard';
 function Profile() {
   const [userProfile, setUserProfile] = useState([]);
   const [userImages, setUserImages] = useState({});
@@ -40,14 +41,15 @@ function Profile() {
 
     getUserProfile().then((data) => {
       setUserProfile(data);
-    });
 
-    getUserImages().then((data) => {
-      setUserImages(data);
+      getUserImages().then((data) => {
+        setUserImages(data);
+        setLoading(false);
+      });
     });
   }, []);
 
-  if (!userProfile && !userImages) {
+  if (loading) {
     return <h1>loading hehe</h1>;
   }
 
@@ -56,13 +58,41 @@ function Profile() {
       {console.log(userProfile)}
       <Navbar />
       {/* RENDER UI HERE */}
+      {/* STAT PAGE */}
+      <p>DOWNLOADS {userProfile.downloads}</p>
+      <p>FOLLOWERS {userProfile.followers_count}</p>
+      <p>PHOTOS {userProfile.total_photos}</p>
+
       {/* NAME */}
       <div className="">
         <p>{`${userProfile.first_name} ${userProfile.last_name} `}</p>
       </div>
       {/* BIO    */}
       <p>{userProfile.bio}</p>
+
+      {/* IMAGE */}
       <img src={userProfile.profile_image.large} alt="" />
+
+      {/* LOCATION */}
+      <MdLocationOn />
+      <p>{userProfile.location}</p>
+
+      {/* IMAGES */}
+      <div className="flex flex-wrap gap-10 px-20 items-center justify-center">
+        {userImages.map((item) => (
+          <SmPhotoCard
+            key={item.id}
+            profileImage={item.user.profile_image.large}
+            image={item.urls.regular}
+            likes={item.likes}
+            name={`${item.user.first_name} ${
+              item.user.last_name ? item.user.last_name : ''
+            }`}
+            username={item.user.username}
+            imageLink={item.links.html}
+          />
+        ))}
+      </div>
       <Footer />
     </>
   );
