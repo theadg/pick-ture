@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 // TODO: add on click events
 /* 
     ONCLICKS:
-        // 1. image
-        // 2. author profileS
-        // 3. like
+        // 1. DONE: image
+        // 2. ON GOING: author profileS
+        // 3. DONE: like
 */
 
 // TODO: fix image click
@@ -29,10 +30,10 @@ function SmPhotoCard(props) {
     window.open(props.imageLink, '_blank');
     console.log('naclick ako eh');
   };
-  //   useEffect(() => {}, []);
 
   return (
     <>
+      {console.log(props)}
       <div className="  grid justify-items-center relative  ">
         <a href={props.imageLink} target="_blank" rel="noopener noreferrer">
           <img
@@ -47,18 +48,24 @@ function SmPhotoCard(props) {
           onClick={imageClick}
           className=" w-inherit font-darken hover:cursor-pointer  flex justify-center items-center z-10 absolute bottom-0  w-inherit gap-3  px-5 py-2"
         >
-          <a className="flex items-center gap-2">
-            <img
-              className="h-8 w-8 rounded-full object-cover "
-              src={props.profileImage}
-              alt=""
-            />
+          <Link
+            to={`/user/${props.username}`}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <a className="flex items-center gap-2">
+              <img
+                className="h-8 w-8 rounded-full object-cover "
+                src={props.profileImage}
+                alt=""
+              />
 
-            {/* username */}
-            <p className="font-sans font-bold hover:text-primary-blue">
-              {props.name}
-            </p>
-          </a>
+              {/* username */}
+              <p className="font-sans font-bold hover:text-primary-blue">
+                {/* {props.name} */}
+                {props.username}
+              </p>
+            </a>
+          </Link>
           {/* Like */}
           <p
             onClick={handleClick}

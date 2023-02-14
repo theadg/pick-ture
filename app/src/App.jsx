@@ -7,6 +7,7 @@ import Explore from './pages/Explore/Explore';
 import Category from './pages/Category/Category';
 import SignUp from './pages/SignUp/SignUp';
 import LogIn from './pages/LogIn/LogIn';
+import Profile from './pages/Profile/Profile';
 
 import { Route, Routes } from 'react-router-dom';
 
@@ -20,6 +21,7 @@ export default function App() {
         <Route path="/category/:title" element={<Category />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/log-in" element={<LogIn />} />
+        <Route path="user/:name" element={<Profile />} />
       </Routes>
     </>
   );
