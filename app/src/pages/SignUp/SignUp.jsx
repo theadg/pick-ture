@@ -48,7 +48,7 @@ function SignUp() {
             <p class="font-sans">Share your shots to the world</p>
           </div>
           {/* form itself */}
-          <form action="" className="grid gap-4">
+          <form action="" className="grid gap-4" onSubmit={handleSubmit}>
             <input
               className="pb-1 border-b-2 font-sans w-half input duration-200"
               type="text"
@@ -56,6 +56,7 @@ function SignUp() {
               id=""
               placeholder="Name"
               onChange={handleChange}
+              required
             />
 
             <input
@@ -65,6 +66,7 @@ function SignUp() {
               id=""
               placeholder="Email"
               onChange={handleChange}
+              required
             />
             <input
               className="pb-1  border-b-2 font-sans w-half input  duration-200"
@@ -73,6 +75,7 @@ function SignUp() {
               id=""
               placeholder="Password"
               onChange={handleChange}
+              required
             />
             <input
               className="pb-1  border-b-2 font-sans w-half input  duration-200"
@@ -81,6 +84,7 @@ function SignUp() {
               id=""
               placeholder="Confirm Password"
               onChange={handleChange}
+              required
             />
             <div className="flex align-center gap-2 justify-center">
               <input
@@ -88,13 +92,14 @@ function SignUp() {
                 name=""
                 id="privacy"
                 className="accent-primary-blue"
+                required
               />
               <label for="privacy" className=" text-sm text-[#9ca3a7]">
                 I agree to privacy and terms
               </label>
             </div>
             <button
-              onClick={handleSubmit}
+              type="submit"
               className="font-bold text-primary-bg animate__animated animate__fadeInUp animate__delay sm:mt-0 sm:w-auto  mt-5 bg-primary-blue  w-full p-2 rounded font-main text-sm px-8"
             >
               Sign Up
