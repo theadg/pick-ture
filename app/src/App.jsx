@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import './App.css';
 import 'animate.css';
 import Home from './pages/Home/Home';
 import Photos from './pages/Photos/Photos';
@@ -8,7 +7,7 @@ import Category from './pages/Category/Category';
 import SignUp from './pages/SignUp/SignUp';
 import LogIn from './pages/LogIn/LogIn';
 import Profile from './pages/Profile/Profile';
-
+import Contest from './pages/Contest/Contest';
 import { Route, Routes } from 'react-router-dom';
 
 export default function App() {
@@ -22,6 +21,7 @@ export default function App() {
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/log-in" element={<LogIn />} />
         <Route path="user/:name" element={<Profile />} />
+        <Route path="/contest" element={<Contest />} />
       </Routes>
     </>
   );
