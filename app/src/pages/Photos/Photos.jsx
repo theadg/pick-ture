@@ -27,14 +27,6 @@ function Photos() {
     });
   }, []);
 
-  if (loading) {
-    return (
-      <>
-        <Navbar />
-        <Footer />
-      </>
-    );
-  }
   return (
     <>
       <Navbar />
@@ -44,22 +36,27 @@ function Photos() {
         </h1>
 
         {/* API CALL  */}
-        <div className="flex flex-wrap gap-10 px-20 items-center justify-center">
-          {images.map((item) => (
-            <SmPhotoCard
-              key={item.id}
-              profileImage={item.user.profile_image.large}
-              image={item.urls.regular}
-              likes={item.likes}
-              name={`${item.user.first_name} ${
-                item.user.last_name ? item.user.last_name : ''
-              }`}
-              username={item.user.username}
-              imageLink={item.links.html}
-              profileMode={false}
-            />
-          ))}
-        </div>
+
+        {loading ? (
+          <h1>hello</h1>
+        ) : (
+          <div className="flex flex-wrap gap-10 px-20 items-center justify-center">
+            {images.map((item) => (
+              <SmPhotoCard
+                key={item.id}
+                profileImage={item.user.profile_image.large}
+                image={item.urls.regular}
+                likes={item.likes}
+                name={`${item.user.first_name} ${
+                  item.user.last_name ? item.user.last_name : ''
+                }`}
+                username={item.user.username}
+                imageLink={item.links.html}
+                profileMode={false}
+              />
+            ))}
+          </div>
+        )}
       </div>
       <Footer />
     </>
