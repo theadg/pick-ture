@@ -82,8 +82,8 @@ function Navbar() {
           >
             ✕
           </button>
-          <ul className="flex  justify-center">
-            <li className=" grid sm:grid-flow-col  gap-4 font-sans items-center h-full">
+          <ul className="flex  justify-center items-center gap-4">
+            <li>
               <Link
                 to="/"
                 className="text-white hover:text-primary-blue hover:border-solid  ease-in-out duration-150"
@@ -91,12 +91,28 @@ function Navbar() {
               >
                 Home
               </Link>
+            </li>
+
+            <li>
+              <Link
+                to="/contest"
+                className="text-white hover:text-primary-blue hover:border-solid  ease-in-out duration-150"
+                href=""
+              >
+                Contest
+              </Link>
+            </li>
+
+            <li>
               <Link
                 to="/photos"
                 className="text-white hover:text-primary-blue hover:border-solid  ease-in-out duration-150"
               >
                 Photos
               </Link>
+            </li>
+
+            <li>
               <Link
                 to="/explore"
                 className="text-white hover:text-primary-blue hover:border-solid  ease-in-out duration-150"
