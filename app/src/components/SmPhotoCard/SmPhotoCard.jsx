@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 /* 
     ONCLICKS:
         // 1. DONE: image
-        // 2. ON GOING: author profileS
+        // 2. DONE: author profileS
         // 3. DONE: like
 */
 
