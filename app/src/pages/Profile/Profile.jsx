@@ -4,6 +4,8 @@ import Footer from '../../components/Footer/Footer';
 import Navbar from '../../components/Navbar/Navbar';
 import { MdLocationOn } from 'react-icons/md';
 import SmPhotoCard from '../../components/SmPhotoCard/SmPhotoCard';
+import blob from '../../assets/profileBlob3.svg';
+
 function Profile() {
   const [userProfile, setUserProfile] = useState([]);
   const [userImages, setUserImages] = useState({});
@@ -53,18 +55,25 @@ function Profile() {
     return <h1>loading hehe</h1>;
   }
 
+  // TODO: enlarge font
   return (
     <>
       {console.log(userProfile)}
+
       <Navbar />
       {/* RENDER UI HERE */}
 
-      <div className="flex  items-center justify-center gap-6 flex-col w-full pb-10 mt-10">
+      <div className=" flex  relative items-center justify-center gap-6 flex-col w-full pb-10 mt-10">
         {/* HEADER */}
-        <div className="flex  items-center justify-center gap-6 w-4/5">
+        <img
+          className="absolute z-0  md:block blob  w-184 bottom-52 "
+          src={blob}
+          alt=""
+        />
+        <div className=" z-10 flex  items-center justify-center gap-6 md:w-auto w-4/5">
           <div className="flex flex-col items-center gap-2">
             <img
-              className="w-28 rounded-full"
+              className="md:w-36 w-28 rounded-full shadow-2xl"
               src={userProfile.profile_image.large}
               alt=""
             />
@@ -73,7 +82,7 @@ function Profile() {
           {/* NAME */}
           <div className="flex gap-6 flex-col ">
             <div className="flex gap-2 flex-col">
-              <p className="font-main text-3xl uppercase font-bold">
+              <p className="font-main md:text-5xl text-3xl uppercase font-bold">
                 <span className="text-primary-blue">
                   {' '}
                   {userProfile.first_name}
@@ -91,33 +100,33 @@ function Profile() {
           </div>
         </div>
         {/* BIO */}
-        <p class="w-4/5 text-justify">{userProfile.bio}</p>
+        <p class=" z-10 md:ml-40 max-w-sm w-4/5 text-justify">
+          {userProfile.bio}
+        </p>
 
         {/* STATS */}
-        <div className="flex gap-6">
+        <div className=" z-10 flex gap-6 md:ml-40">
           <div className="flex flex-col justify-center items-center">
-            <p className="font-main text-2xl font-bold text-primary-blue">
+            <p className="font-main md:text-4xl text-2xl font-bold text-primary-blue">
               {userProfile.total_photos}
             </p>
             <p className="font-sans">PHOTOS</p>
           </div>
 
-          <div className="flex flex-col justify-center items-center">
-            <p className="font-main text-2xl font-bold text-primary-blue">
+          <div className=" z-10 flex flex-col justify-center items-center">
+            <p className="font-main md:text-4xl text-2xl font-bold text-primary-blue">
               {userProfile.followers_count}
             </p>
             <p className="font-sans">FOLLOWERS</p>
           </div>
 
-          <div className="flex flex-col justify-center items-center">
-            <p className="font-main text-2xl font-bold text-primary-blue">
+          <div className=" flex flex-col justify-center items-center">
+            <p className="font-main md:text-4xl text-2xl font-bold text-primary-blue">
               {userProfile.downloads.toLocaleString()}
             </p>
-            <p className="font-sans">DOWNLOADS</p>
+            <p className="font-sans ">DOWNLOADS</p>
           </div>
         </div>
-
-        <hr className="border-t-4 border-primary-blue w-3/4" />
       </div>
 
       {/* bio */}
