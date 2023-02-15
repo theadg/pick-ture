@@ -4,6 +4,7 @@ import Navbar from '../../components/Navbar/Navbar';
 // import PhotoCard from '../../components/PhotoCard/PhotoCard';
 import SmPhotoCard from '../../components/SmPhotoCard/SmPhotoCard';
 import { useParams } from 'react-router-dom';
+import ReactLoading from 'react-loading';
 
 export default function Category() {
   const [currentCategory, setCurrentCategory] = useState([]);
@@ -32,7 +33,12 @@ export default function Category() {
 
   if (loading) {
     // loading skeleton
-    return <div>loading pa ako eh</div>;
+    return (
+      <>
+        <Navbar />
+        <Footer />
+      </>
+    );
   }
 
   return (
