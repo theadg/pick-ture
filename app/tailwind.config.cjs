@@ -28,6 +28,7 @@ module.exports = {
 
       width: {
         184: '900px',
+        contest: '265px',
       },
 
       height: {
