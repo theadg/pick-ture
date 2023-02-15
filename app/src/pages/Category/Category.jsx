@@ -54,6 +54,7 @@ export default function Category() {
               }`}
               username={item.user.username}
               imageLink={item.links.html}
+              profileMode={false}
             />
           ))}
         </div>

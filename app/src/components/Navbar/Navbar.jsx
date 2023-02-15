@@ -48,7 +48,7 @@ function Navbar() {
   };
 
   return (
-    <div className="animate__animated animate__fadeInDown ">
+    <div className="animate__animated animate__fadeInDown z-50">
       <nav className="relative lg:px-60 md:px-20 sm:px-10 w-screen px-8 py-5 flex justify-between sm:items-center">
         <h3 className="font-main uppercase text-2xl">
           <span className="text-primary-blue">Pick</span>ture
