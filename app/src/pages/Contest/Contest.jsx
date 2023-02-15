@@ -46,8 +46,7 @@ function Contest() {
     };
 
     getImages().then((data) => {
-      setImages(data);
-      setImages((prevData) => prevData.sort((a, b) => b.likes - a.likes));
+      setImages(data.sort((a, b) => b.likes - a.likes));
       setLoading(false);
     });
   }, [currentMonth]);

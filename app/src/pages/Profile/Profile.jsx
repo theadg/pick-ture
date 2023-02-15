@@ -5,7 +5,9 @@ import Navbar from '../../components/Navbar/Navbar';
 import { MdLocationOn } from 'react-icons/md';
 import SmPhotoCard from '../../components/SmPhotoCard/SmPhotoCard';
 import blob from '../../assets/profileBlob3.svg';
+import ReactLoading from 'react-loading';
 
+import 'react-loading-skeleton/dist/skeleton.css';
 function Profile() {
   const [userProfile, setUserProfile] = useState([]);
   const [userImages, setUserImages] = useState({});
@@ -52,7 +54,13 @@ function Profile() {
   }, []);
 
   if (loading) {
-    return <h1>loading hehe</h1>;
+    return (
+      <>
+        <Navbar />
+        <div className="h-full w-full bg-primary-blue"></div>
+        <Footer />
+      </>
+    );
   }
 
   // TODO: enlarge font

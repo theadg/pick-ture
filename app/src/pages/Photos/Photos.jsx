@@ -5,31 +5,36 @@ import SmPhotoCard from '../../components/SmPhotoCard/SmPhotoCard';
 
 function Photos() {
   const [images, setImages] = useState([]);
-  try {
-    useEffect(() => {
-      const getImages = async () => {
-        try {
-          const response = await fetch(
-            `https://api.unsplash.com/photos/random?count=30&orientation=portrait&client_id=pXQG7S0yyYvyctXQIo4MiwJ9YJz0Ih4xsUdmCv3z3Ow`
-          );
+  const [loading, setLoading] = useState(true);
 
-          const data = await response.json();
-          return data;
-        } catch (err) {
-          console.log(err);
-        }
-      };
+  useEffect(() => {
+    const getImages = async () => {
+      try {
+        const response = await fetch(
+          `https://api.unsplash.com/photos/random?count=30&orientation=portrait&client_id=pXQG7S0yyYvyctXQIo4MiwJ9YJz0Ih4xsUdmCv3z3Ow`
+        );
 
-      getImages().then((data) => {
-        setImages(data);
-        setImages((prevData) => prevData.sort((a, b) => b.likes - a.likes));
-        setLoading(false);
-      });
-    }, []);
-  } catch (err) {
-    throw new err();
+        const data = await response.json();
+        return data;
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    getImages().then((data) => {
+      setImages(data.sort((a, b) => b.likes - a.likes));
+      setLoading(false);
+    });
+  }, []);
+
+  if (loading) {
+    return (
+      <>
+        <Navbar />
+        <Footer />
+      </>
+    );
   }
-
   return (
     <>
       <Navbar />
