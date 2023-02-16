@@ -9,7 +9,7 @@ function Explore() {
     <>
       <Navbar />
       <div className="px-8 flex flex-col gap-10 items-center justify-center w-full ">
-        <h1 className="uppercase z-10 max-h-min max-w-desk  animate__animated animate__fadeInUp font-bold font-main text-3xl text-center">
+        <h1 className="uppercase z-10 max-h-min max-w-desk  animate__animated animate__fadeInUp font-bold font-main md:text-5xl text-3xl text-center">
           <span className="text-primary-blue">Explore</span> Categories
         </h1>
 
