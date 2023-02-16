@@ -1,10 +1,13 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../../AuthContext';
 import 'animate.css/animate.min.css';
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [hidden, setHidden] = useState(true);
   const [width, setWidth] = useState(window.innerWidth);
+  const { isLoggedIn, logout } = useAuth();
+
   const menuRef = useRef();
 
   useEffect(() => {
@@ -50,7 +53,7 @@ function Navbar() {
   return (
     <div className="animate__animated animate__fadeInDown z-50">
       <nav className="relative lg:px-60 md:px-20 sm:px-10 w-screen px-8 py-5 flex justify-between sm:items-center">
-        <h3 className="font-main uppercase text-2xl">
+        <h3 className="font-main uppercase text-2xl font-bold">
           <span className="text-primary-blue">Pick</span>ture
         </h3>
 
@@ -122,15 +125,27 @@ function Navbar() {
               </Link>
             </li>
           </ul>
-          <Link
-            to="/sign-up"
-            className="text-white hover:text-primary-bg hover:border-solid  ease-in-out duration-150"
-            href=""
-          >
-            <button className="sm:mt-0 sm:w-auto mt-5 bg-primary-blue p-2 rounded font-main text-sm w-full">
-              Sign Up
-            </button>
-          </Link>
+          {!isLoggedIn ? (
+            <Link
+              to="/sign-up"
+              className="text-white hover:text-primary-bg hover:border-solid  ease-in-out duration-150"
+              href=""
+            >
+              <button className="sm:mt-0 sm:w-auto mt-5 bg-primary-blue p-2 rounded font-main text-sm w-full">
+                Sign Up
+              </button>
+            </Link>
+          ) : (
+            <Link
+              to="/photos"
+              className="text-white hover:text-primary-bg hover:border-solid  ease-in-out duration-150"
+              href=""
+            >
+              <button className="sm:mt-0 sm:w-auto mt-5 bg-primary-blue p-2 rounded font-main text-sm w-full">
+                View
+              </button>
+            </Link>
+          )}
         </div>
 
         <div className="hidden" id="navMenu"></div>
