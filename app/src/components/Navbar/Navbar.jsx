@@ -82,7 +82,7 @@ function Navbar() {
           >
             ✕
           </button>
-          <ul className="flex  justify-center items-center gap-4">
+          <ul className="flex sm:flex-row flex-col justify-center items-center gap-4">
             <li>
               <Link
                 to="/"
