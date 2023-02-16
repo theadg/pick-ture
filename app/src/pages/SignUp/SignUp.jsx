@@ -43,7 +43,7 @@ function SignUp() {
         <div className="flex px-10 py-10 mt-20 bg-card rounded-2xl flex-col items-center justify-center   w-max gap-4 shadow-xl">
           <div className="">
             <h1 class="font-main text-4xl font-bold text-primary-blue">
-              Sign In
+              Sign Up
             </h1>
             <p class="font-sans">Share your shots to the world</p>
           </div>
