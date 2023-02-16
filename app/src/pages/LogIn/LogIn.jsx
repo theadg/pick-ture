@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../../components/Footer/Footer';
 import Navbar from '../../components/Navbar/Navbar';
 import axios from 'axios';
+import { useAuth } from '../../AuthContext';
+
 function LogIn() {
+  const { login } = useAuth();
+
   const [account, setAccount] = useState({
     email: '',
     password: '',
   });
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setAccount((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -20,8 +26,10 @@ function LogIn() {
     console.log(account);
     try {
       await axios.post('http://localhost:5000/user/login', account);
-      alert('logged in bro!');
+      login();
+      navigate('/');
     } catch (err) {
+      alert('Invalid credentials');
       throw new err();
     }
   };
@@ -38,13 +46,14 @@ function LogIn() {
             <p className="font-sans">Welcome back!</p>
           </div>
           {/* form itself */}
-          <form action="" className="grid gap-4">
+          <form action="" className="grid gap-4" onSubmit={handleSubmit}>
             <input
               className="pb-1  border-b-2 font-sans w-half input  duration-200"
               type="email"
               name="email"
               id=""
               placeholder="Email"
+              required
               onChange={handleChange}
             />
             <input
@@ -53,6 +62,7 @@ function LogIn() {
               name="password"
               id=""
               placeholder="Password"
+              required
               onChange={handleChange}
             />
 
@@ -67,10 +77,7 @@ function LogIn() {
                 Remember Me
               </label>
             </div>
-            <button
-              onClick={handleSubmit}
-              className="font-bold text-primary-bg animate__animated animate__fadeInUp animate__delay sm:mt-0 sm:w-auto  mt-5 bg-primary-blue  w-full p-2 rounded font-main text-sm px-8"
-            >
+            <button className="font-bold text-primary-bg animate__animated animate__fadeInUp animate__delay sm:mt-0 sm:w-auto  mt-5 bg-primary-blue  w-full p-2 rounded font-main text-sm px-8">
               Log In
             </button>
 

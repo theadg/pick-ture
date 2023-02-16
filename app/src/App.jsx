@@ -9,20 +9,23 @@ import LogIn from './pages/LogIn/LogIn';
 import Profile from './pages/Profile/Profile';
 import Contest from './pages/Contest/Contest';
 import { Route, Routes } from 'react-router-dom';
+import { AuthProvider } from './AuthContext';
 
 export default function App() {
   return (
     <>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/photos" element={<Photos />} />
-        <Route path="/explore" element={<Explore />} />
-        <Route path="/category/:title" element={<Category />} />
-        <Route path="/sign-up" element={<SignUp />} />
-        <Route path="/log-in" element={<LogIn />} />
-        <Route path="user/:name" element={<Profile />} />
-        <Route path="/contest" element={<Contest />} />
-      </Routes>
+      <AuthProvider>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/photos" element={<Photos />} />
+          <Route path="/explore" element={<Explore />} />
+          <Route path="/category/:title" element={<Category />} />
+          <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/log-in" element={<LogIn />} />
+          <Route path="user/:name" element={<Profile />} />
+          <Route path="/contest" element={<Contest />} />
+        </Routes>
+      </AuthProvider>
     </>
   );
 }

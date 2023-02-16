@@ -35,8 +35,8 @@ export default function Category() {
     // loading skeleton
     return (
       <>
-        <Navbar />
-        <Footer />
+        {/* <Navbar /> */}
+        {/* <Footer /> */}
       </>
     );
   }
