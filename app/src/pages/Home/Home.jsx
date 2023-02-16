@@ -25,7 +25,7 @@ function Home() {
             src={underline}
             alt=""
           />
-          <h1 className="z-10 max-h-min max-w-desk  animate__animated animate__fadeInUp font-bold font-main text-3xl text-center">
+          <h1 className="z-10 max-h-min max-w-desk  animate__animated animate__fadeInUp font-bold font-main text-4xl text-center">
             SHOW OFF YOUR <span className="text-primary-blue">BEST SHOTS</span>
           </h1>
         </div>
