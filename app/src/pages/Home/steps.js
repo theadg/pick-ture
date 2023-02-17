@@ -5,22 +5,22 @@ import upload from '../../assets/upload.svg';
 export const steps = [
   {
     icon: upload,
-    heading: 'Upload your Photo',
-    para: 'The best moments are the ones you capture  and share.Simply press go to the Photos tab and click upload.',
+    heading: 'Browse Photos',
+    para: 'The best moments are the ones you capture and share. Join the movement.',
     index: 1,
   },
 
   {
     icon: heart,
     heading: 'vote for photos',
-    para: 'The best moments are the ones you capture  and share.Simply press go to the Photos tab and click upload.',
+    para: 'Choose from snapshots all over the world. Simply press the heart button to vote',
     index: 2,
   },
 
   {
     icon: explore,
     heading: 'explore categories',
-    para: 'The best moments are the ones you capture  and share.Simply press go to the Photos tab and click upload.',
+    para: 'Easily browse and find content related to your interests. You want it, you got it!',
     index: 3,
   },
 ];

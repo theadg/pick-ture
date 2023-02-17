@@ -53,10 +53,11 @@ function Navbar() {
   return (
     <div className="animate__animated animate__fadeInDown z-50">
       <nav className="relative lg:px-60 md:px-20 sm:px-10 w-screen px-8 py-5 flex justify-between sm:items-center">
-        <h3 className="font-main uppercase text-2xl font-bold">
-          <span className="text-primary-blue">Pick</span>ture
-        </h3>
-
+        <Link to="/">
+          <h3 className="font-main uppercase text-2xl font-bold hover:text-primary-blue ease-in duration-150 cursor-pointer">
+            <span className="text-primary-blue">Pick</span>ture
+          </h3>
+        </Link>
         <button
           onClick={toggle}
           className={`${

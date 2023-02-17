@@ -2,15 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-// TODO: add on click events
-/* 
-    ONCLICKS:
-        // 1. DONE: image
-        // 2. DONE: author profileS
-        // 3. DONE: like
-*/
 
-// TODO: fix image click
 function SmPhotoCard(props) {
   const [votes, setVotes] = useState(props.likes);
   const [hasVoted, setHasVoted] = useState(false);
@@ -33,8 +25,7 @@ function SmPhotoCard(props) {
 
   return (
     <>
-      {/* {console.log(props)} */}
-      <div className="  grid justify-items-center relative  ">
+      <div className="grid justify-items-center relative animate__animated animate__fadeInUp ">
         <a
           href={props.imageLink}
           className="hover:cursor-zoom-in "
@@ -42,7 +33,7 @@ function SmPhotoCard(props) {
           rel="noopener noreferrer"
         >
           <img
-            className=" mx-auto img__category h shadow-2xl object-cover rounded img__category row-start-1  col-start-1 col-end-4 row-end-4"
+            className=" mx-auto img__category  shadow-2xl object-cover rounded img__category row-start-1  col-start-1 col-end-4 row-end-4"
             src={props.image}
           />
         </a>

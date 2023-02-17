@@ -19,6 +19,7 @@ module.exports = {
       card: '#282D36',
       rose: 'rgb(136 19 55)',
       white: '#EEEEEE',
+      hover: '#038187',
     },
     extend: {
       boxShadow: {
