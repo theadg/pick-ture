@@ -52,12 +52,7 @@ function Contest() {
   }, [currentMonth]);
 
   if (loading) {
-    return (
-      <>
-        <Navbar />
-        <Footer />
-      </>
-    );
+    return <></>;
   }
   return (
     <>

@@ -31,14 +31,14 @@ function Photos() {
     <>
       <Navbar />
       <div className="px-8 flex flex-col gap-10 items-center justify-center w-full">
-        <h1 className="z-10 max-h-min max-w-desk  animate__animated animate__fadeInUp font-bold font-main text-5xl text-center">
-          <span className="text-primary-blue uppercase">Suggested for you</span>
+        <h1 className="uppercase z-10 max-h-min max-w-desk  animate__animated animate__fadeInUp font-bold font-main sm:text-5xl text-3xl text-center">
+          Suggested<span className="text-primary-blue "> for you</span>
         </h1>
 
         {/* API CALL  */}
 
         {loading ? (
-          <h1>hello</h1>
+          ''
         ) : (
           <div className="flex flex-wrap gap-10 px-20 items-center justify-center">
             {images.map((item) => (

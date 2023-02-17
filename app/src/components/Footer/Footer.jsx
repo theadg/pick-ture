@@ -6,7 +6,7 @@ import google from '../../assets/google.svg';
 import twitter from '../../assets/twitter.svg';
 import 'animate.css/animate.min.css';
 import { AnimationOnScroll } from 'react-animation-on-scroll';
-
+import { Link } from 'react-router-dom';
 export default function Footer() {
   return (
     <>
@@ -17,29 +17,43 @@ export default function Footer() {
           </h3>
 
           <ul className="flex justify-center gap-8 w-100">
-            <li className="">
-              <a
+            <li>
+              <Link
+                to="/"
                 className="text-white hover:text-primary-blue hover:border-solid  ease-in-out duration-150"
                 href=""
               >
                 Home
-              </a>
+              </Link>
             </li>
+
             <li>
-              <a
+              <Link
+                to="/contest"
                 className="text-white hover:text-primary-blue hover:border-solid  ease-in-out duration-150"
                 href=""
               >
-                Photos
-              </a>
+                Contest
+              </Link>
             </li>
+
             <li>
-              <a
+              <Link
+                to="/photos"
+                className="text-white hover:text-primary-blue hover:border-solid  ease-in-out duration-150"
+              >
+                Photos
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                to="/explore"
                 className="text-white hover:text-primary-blue hover:border-solid  ease-in-out duration-150"
                 href=""
               >
                 Explore
-              </a>
+              </Link>
             </li>
           </ul>
 

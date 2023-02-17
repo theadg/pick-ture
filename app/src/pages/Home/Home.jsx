@@ -14,6 +14,9 @@ import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import { Link } from 'react-router-dom';
 function Home() {
+  const handleSubscribe = () => {
+    alert('You have successfully registered for our news letter!');
+  };
   return (
     <>
       <Navbar />
@@ -35,7 +38,7 @@ function Home() {
         </p>
 
         <Link to="/photos">
-          <button className="animate__animated animate__fadeInUp animate__delay sm:mt-0 sm:w-auto mt-5 bg-primary-blue p-2 rounded font-main text-sm px-8">
+          <button className="hover:text-primary-bg animate__animated animate__fadeInUp animate__delay sm:mt-0 sm:w-auto mt-5 bg-primary-blue p-2 rounded font-main text-sm px-8">
             VIEW PHOTOS
           </button>
         </Link>
@@ -54,7 +57,7 @@ function Home() {
           />
         </div>
       </div>
-      <div className=" gap-4 px-8 flex flex-col items-center  justify-center py-16 ">
+      <div className=" gap-16 px-8 flex flex-col items-center  justify-center py-16 ">
         <AnimationOnScroll animateIn="animate__fadeInLeft">
           <div className="grid  grid__header--sub relative pt-20">
             <img className="z-0 h-24  top-6 absolute " src={enumAccent} />
@@ -65,15 +68,17 @@ function Home() {
           </div>
         </AnimationOnScroll>
         {/* STEPS */}
-        {steps.map((step) => (
-          <Steps
-            key={step.index}
-            icon={step.icon}
-            heading={step.heading}
-            para={step.para}
-            index={step.index}
-          />
-        ))}
+        <div className="flex  flex-col gap-12">
+          {steps.map((step) => (
+            <Steps
+              key={step.index}
+              icon={step.icon}
+              heading={step.heading}
+              para={step.para}
+              index={step.index}
+            />
+          ))}
+        </div>
       </div>
 
       <div className=" gap-10 px-8 flex flex-col items-center  justify-center py-4 mb-14">
@@ -113,7 +118,10 @@ function Home() {
               id=""
               placeholder="johndoe@address.com"
             />
-            <button className="font-bold text-primary-bg animate__animated animate__fadeInUp animate__delay sm:mt-0 sm:w-auto mt-5 bg-primary-blue p-2 rounded font-main text-sm px-8">
+            <button
+              onClick={handleSubscribe}
+              className="font-bold text-primary-bg animate__animated animate__fadeInUp animate__delay sm:mt-0 sm:w-auto mt-5 bg-primary-blue p-2 rounded font-main text-sm px-8"
+            >
               SUBSCRIBE
             </button>
           </div>

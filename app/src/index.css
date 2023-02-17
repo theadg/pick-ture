@@ -38,6 +38,7 @@
 
 .hero__img {
   max-width: min(80vw, 700px);
+  min-width: 265px;
 }
 
 .grid__header {
@@ -85,14 +86,10 @@
   justify-items: center;
 }
 
-.grid__category:hover {
-  /* text-shadow: 0px -1px 50px #222831; */
-}
-
 .img__category {
-  width: 300px;
+  min-width: 300px;
+  max-width: 300px;
   height: 280px;
-  filter: grayscale(0%);
 }
 
 .font-darken {
@@ -102,7 +99,6 @@
 
 .input {
   background-color: transparent;
-  /* color: #00adb5; */
 }
 
 .input:focus {

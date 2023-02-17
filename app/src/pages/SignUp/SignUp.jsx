@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import Footer from '../../components/Footer/Footer';
 import Navbar from '../../components/Navbar/Navbar';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function SignUp() {
-  // TODO: validation here
   const [account, setAccount] = useState({
     name: '',
     email: '',
     password: '',
     confirmPassword: '',
   });
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setAccount((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -28,9 +29,10 @@ function SignUp() {
     e.preventDefault();
     try {
       await axios.post('http://localhost:5000/user/signup', account);
-      alert('submitted eh');
+      alert('You have successfully registered');
+      navigate('/log-in');
     } catch (err) {
-      console.log(err);
+      alert('Email already registered!');
     }
   };
 
@@ -39,7 +41,7 @@ function SignUp() {
       {/* TODO: add svg */}
 
       <Navbar />
-      <div className="flex  flex-col items-center justify-center h-full ">
+      <div className="flex  flex-col items-center justify-center h-full animate__animated animate__fadeInUp">
         <div className="flex px-10 py-10 mt-20 bg-card rounded-2xl flex-col items-center justify-center   w-max gap-4 shadow-xl">
           <div className="">
             <h1 class="font-main text-4xl font-bold text-primary-blue">
